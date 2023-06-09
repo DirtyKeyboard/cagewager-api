@@ -1,0 +1,17 @@
+{
+  "name": "stock-up-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon ."
+  },
+  "dependencies": {
+    "@prisma/client": "4.15.0",
+    "dotenv": "^16.1.4",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "nodemon": "^2.0.22",
+    "prisma": "^4.15.0"
+  }
+}
