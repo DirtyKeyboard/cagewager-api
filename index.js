@@ -65,3 +65,15 @@ app.post('/login', async(req, res) => {
 app.get('/tokenCheck', authToken, (req, res) => {
     res.status(200).send({user: req.user, token: req.headers.auth})
 })
+
+app.get('/search/:query', authToken, async(req,res) => {
+    try {
+        const users = await prisma.user.findMany({where: {username: {contains: req.params.query, mode: 'insensitive'}}})
+        const rUsers = users.map(u => delete u.password)
+        res.status(200).send({users: users})
+    }
+    catch (err) {
+        console.log(err)
+        res.sendStatus(401)
+    }
+})
